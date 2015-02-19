@@ -40,8 +40,23 @@ then
 fi
 
 #download quadcopter control folder from github
-https://github.com/JMills93/TrackingQuadControl.git
+apt-get install git
+git clone https://github.com/JMills93/TrackingQuadControl.git
 cd TrackingQuadControl
+cd src
+sudo rm -rf geometry
+sudo rm -rf roscopter
+git clone https://github.com/ros/geometry.git
+git clone https://code.google.com/p/gt-ros-pkg.hrl/
+cd ..
+mv src/gt-ros-pkg.hrl/ros_vrpn_client src
+cd src
+rm -rf gt-ros-pkg.hrl
+git clone https://github.com/cberzan/roscopter.git
+cd roscopter
+sudo rm -rf mavlink
+git clone https://github.com/mavlink/mavlink.git
+
 
 #installing dependancies
 sudo apt-get install ros-hydro-sensor-msgs python-serial python-tz
@@ -54,9 +69,6 @@ rosdep install roscopter
 cd Quadcopter_Controller
 source /opt/ros/indigo/setup.bash
 catkin_make
-source devel/setup.bash
-source /opt/ros/indigo/setup.bash
-catkin make
 source devel/setup.bash
 
 #downloading and installing python
