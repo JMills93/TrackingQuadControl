@@ -1,0 +1,8 @@
+prefix=/home/jay/ros/devel
+
+Name: roscopter
+Description: Description of roscopter
+Version: 0.1.0
+Cflags: -I/home/jay/ros/devel/include
+Libs: -L/home/jay/ros/devel/lib 
+Requires: 
